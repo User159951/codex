@@ -8,21 +8,18 @@ import com.example.customerservice.repository.CustomerRepository;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Component
 @GrpcService
+@RequiredArgsConstructor
 public class CustomerGRPCService extends CustomerServiceGrpc.CustomerServiceImplBase{
 
-    @Autowired
-    CustomerRepository customerRepository;
-    @Autowired
-    CustomerMapper customerMapper;
+    private final CustomerRepository customerRepository;
+    private final CustomerMapper customerMapper;
 
     @Override
     public void
