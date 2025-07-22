@@ -1,5 +1,7 @@
 package com.example.customerservice.config;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 @Configuration
 @ImportAutoConfiguration({
@@ -20,4 +22,9 @@ import org.springframework.context.annotation.Configuration;
 })
 
 public class GrpcConfig {
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
+    }
 }
